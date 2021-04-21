@@ -10,13 +10,13 @@ Route::get('/', function () {
 
 Route::get('livros', [LivroController::class, "index"])->name('livros')->middleware('auth');
 
-Route::get('livros/add', [LivroController::class, 'createView'])->name('livros.add');
+Route::get('livros/add', [LivroController::class, 'createView'])->name('livros.add')->middleware('auth');
 Route::post('livros/add', [LivroController::class, 'create'])->name('livros.create');
 
-Route::get('livros/edit/{livro}', [LivroController::class, 'editView'])->name('livros.edit');
+Route::get('livros/edit/{livro}', [LivroController::class, 'editView'])->name('livros.edit')->middleware('auth');
 Route::put('livros/edit/{livro}', [LivroController::class, 'edit'])->name('livros.edit');
 
-Route::get('livros/delete/{livro}', [LivroController::class, 'deleteView'])->name('livros.delete');
+Route::get('livros/delete/{livro}', [LivroController::class, 'deleteView'])->name('livros.delete')->middleware('auth');
 Route::delete('livros/delete/{livro}', [LivroController::class, 'delete'])->name('livros.delete');
 
 Route::post('user', [LoginController::class, 'authenticate'])->name('user.login');

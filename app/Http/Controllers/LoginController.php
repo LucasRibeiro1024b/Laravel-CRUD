@@ -10,7 +10,10 @@ class LoginController extends Controller
 {
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $email = $request->email;
+        $senha = $request->senha;
+
+        $credentials = $request->only($email, $senha);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -37,5 +40,10 @@ class LoginController extends Controller
         Auth::login($user);
 
         return redirect()->route('livros');
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('home');
     }
 }
