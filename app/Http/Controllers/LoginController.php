@@ -10,6 +10,7 @@ class LoginController extends Controller
 {
     public function authenticate(Request $request)
     {
+        /*
         $email = $request->email;
         $senha = $request->senha;
 
@@ -24,6 +25,14 @@ class LoginController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
+        */
+        if (auth()->attempt(request(['email', 'password'])) == false) {
+            return back()->withErrors([
+                'message' => 'The email or password is incorrect, please try again'
+            ]);
+        }
+
+        return redirect()->intended('livros');
     }
 
     public function createView() {
@@ -31,6 +40,7 @@ class LoginController extends Controller
     }
 
     public function create(Request $request) {
+       /*
         $user = new User();
         $user->name = $request->nome;
         $user->email = $request->email;
@@ -39,6 +49,17 @@ class LoginController extends Controller
 
         Auth::login($user);
 
+        return redirect()->route('livros');
+    */
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $user = User::create(request(['name', 'email', 'password']));
+
+        Auth::login($user);
         return redirect()->route('livros');
     }
 

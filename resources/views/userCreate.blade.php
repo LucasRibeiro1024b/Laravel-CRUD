@@ -6,7 +6,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="" name="nome">
+                    <input type="text" class="form-control" id="" name="name">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -15,7 +15,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Password</label>
-                        <input type="password" class="form-control" id="" name="senha">
+                        <input type="password" class="form-control" id="" name="password">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Criar conta</button>
