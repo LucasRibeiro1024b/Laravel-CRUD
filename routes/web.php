@@ -23,4 +23,4 @@ Route::post('user', [LoginController::class, 'authenticate'])->name('user.login'
 Route::get('user', [LoginController::class, 'logout'])->name('user.logout');
 
 Route::get('adduser', [LoginController::class, 'createView'])->name('user.add');
-//Route::post('adduser', [LoginController::class, 'create'])->name('usuario.criar');
+Route::post('adduser', [LoginController::class, 'create'])->name('user.add');

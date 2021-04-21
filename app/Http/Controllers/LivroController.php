@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Livro;
+use Illuminate\Support\Facades\Auth;
 
 class LivroController extends Controller
 {
     public function index() {
-        $livros = Livro::orderby('id', 'desc')->paginate();
+        $livros = Livro::orderby('id', 'desc')->where('id_user', '=', Auth::id())->paginate();
 
         return view('library.index', ["livros" => $livros]);
     }
@@ -22,7 +23,7 @@ class LivroController extends Controller
         $livro->titulo = $request->titulo;
         $livro->autor = $request->autor;
         $livro->status = $request->status;
-        $livro->id_user = '1';
+        $livro->id_user = Auth::id();;
         $livro->save();
 
         return redirect()->route('livros');

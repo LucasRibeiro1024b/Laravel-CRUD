@@ -21,7 +21,7 @@
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="{{route('home')}}" class="text-info">Criar conta</a>
+                                <a href="{{route('user.add')}}" class="text-info">Criar conta</a>
                             </div>
                         </form>
                     </div>
