@@ -14,14 +14,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Senha:</label><br>
-                                <input type="password" name="senha" id="" class="form-control">
+                                <input type="password" name="password" id="" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="{}" class="text-info">Criar conta</a>
+                                <a href="{{route('home')}}" class="text-info">Criar conta</a>
                             </div>
                         </form>
                     </div>
