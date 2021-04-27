@@ -4,7 +4,6 @@
     <div class="container">
         <form class="mt-4" method="post" action="{{route('livros.create')}}">
             @csrf
-
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
@@ -31,5 +30,14 @@
             </div>
             <button type="submit" class="btn btn-primary">Adicionar</button>
         </form>
+        @if ($errors->any())
+            <div class="alert alert-danger mt-4">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 @endsection

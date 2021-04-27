@@ -19,6 +19,12 @@ class LivroController extends Controller
     }
 
     public function create(Request $request) {
+        $this->validate(request(), [
+            'titulo' => 'required',
+            'autor' => 'required|email',
+            'status' => 'required|in:Lendo,Lido,Em espera'
+        ]);
+
         $livro = new Livro();
         $livro->titulo = $request->titulo;
         $livro->autor = $request->autor;
