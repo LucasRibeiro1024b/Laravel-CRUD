@@ -32,7 +32,7 @@ class LoginController extends Controller
 
         $this->validate(request(), [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email:rfc,dns',
             'password' => 'required'
         ]);
 
