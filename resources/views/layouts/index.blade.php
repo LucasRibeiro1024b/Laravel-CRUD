@@ -22,17 +22,17 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{route('home')}}">LaraApp</a>
+        <a class="navbar-brand" href="{{route('home.get.view')}}">LaraApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('livros')}}">Livros <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{route('livro.get.view')}}">Livros <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('user.logout')}}">Logout</a>
+                    <a class="nav-link" href="{{route('login.get.logout')}}">Logout</a>
                 </li>
             </ul>
         </div>

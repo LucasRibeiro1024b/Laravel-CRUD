@@ -21,7 +21,7 @@ class LivroController extends Controller
     public function create(Request $request) {
         $this->validate(request(), [
             'titulo' => 'required',
-            'autor' => 'required|email',
+            'autor' => 'required',
             'status' => 'required|in:Lendo,Lido,Em espera'
         ]);
 
@@ -32,7 +32,7 @@ class LivroController extends Controller
         $livro->id_user = Auth::id();;
         $livro->save();
 
-        return redirect()->route('livros');
+        return redirect()->route('livro.get.view');
     }
 
     public function editView(Livro $livro, request $request) {
@@ -45,7 +45,7 @@ class LivroController extends Controller
         $livro->status = $request->status;
         $livro->save();
 
-        return redirect()->route('livros');
+        return redirect()->route('livro.get.view');
     }
 
     public function deleteView(Livro $livro, request $request){
@@ -54,6 +54,6 @@ class LivroController extends Controller
 
     public function delete(Livro $livro) {
         $livro->delete();
-        return redirect()->route('livros');
+        return redirect()->route('livro.get.view');
     }
 }

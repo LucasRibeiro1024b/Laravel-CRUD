@@ -4,23 +4,27 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\LoginController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home.get.view');
 
-Route::get('livros', [LivroController::class, "index"])->name('livros')->middleware('auth');
+    Route::get('view/login', [LoginController::class, 'logout'])->name('login.get.logout');
+    Route::post('view/login', [LoginController::class, 'authenticate'])->name('login.post.view');
 
-Route::get('livros/add', [LivroController::class, 'createView'])->name('livros.add')->middleware('auth');
-Route::post('livros/add', [LivroController::class, 'create'])->name('livros.create');
+    Route::get('new/user', [LoginController::class, 'createView'])->name('login.get.new');
+    Route::post('new/user', [LoginController::class, 'create'])->name('login.post.new');
+});
 
-Route::get('livros/edit/{livro}', [LivroController::class, 'editView'])->name('livros.edit')->middleware('auth');
-Route::put('livros/edit/{livro}', [LivroController::class, 'edit'])->name('livros.edit');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('view/livros', [LivroController::class, "index"])->name('livro.get.view');
 
-Route::get('livros/delete/{livro}', [LivroController::class, 'deleteView'])->name('livros.delete')->middleware('auth');
-Route::delete('livros/delete/{livro}', [LivroController::class, 'delete'])->name('livros.delete');
+    Route::get('new/livro', [LivroController::class, 'createView'])->name('livro.get.new');
+    Route::post('new/livro', [LivroController::class, 'create'])->name('livro.post.new');
 
-Route::post('user', [LoginController::class, 'authenticate'])->name('user.login');
-Route::get('user', [LoginController::class, 'logout'])->name('user.logout');
+    Route::get('edit/livro/{livro}', [LivroController::class, 'editView'])->name('livro.get.edit');
+    Route::put('edit/livro/{livro}', [LivroController::class, 'edit'])->name('livro.put.edit');
 
-Route::get('adduser', [LoginController::class, 'createView'])->name('user.add');
-Route::post('adduser', [LoginController::class, 'create'])->name('user.add');
+    Route::get('delete/livro/{livro}', [LivroController::class, 'deleteView'])->name('livro.get.delete');
+    Route::delete('delete/livro/{livro}', [LivroController::class, 'delete'])->name('livro.delete.delete');
+});

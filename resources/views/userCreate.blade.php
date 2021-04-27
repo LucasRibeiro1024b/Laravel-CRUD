@@ -2,7 +2,7 @@
 @section('content')
     <div id="login">
         <div class="container">
-            <form class="mt-4" method="post" action="{{route('user.add')}}">
+            <form class="mt-4" method="post" action="{{route('login.post.new')}}">
                 @csrf
                 <div class="form-group">
                     <label for="nome">Nome</label>

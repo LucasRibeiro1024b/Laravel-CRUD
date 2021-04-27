@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
 
-        <a href="{{route('livros.add')}}" type="button" class="mt-4 mb-4 btn btn-primary">Adicionar Livro</a>
+        <a href="{{route('livro.get.new')}}" type="button" class="mt-4 mb-4 btn btn-primary">Adicionar Livro</a>
 
         <div class="card shadow mb-4">
             <div class="card-body">
@@ -25,8 +25,8 @@
                                 <td>{{$livro->autor}}</td>
                                 <td>{{$livro->status}}</td>
                                 <td>
-                                    <a href="{{route('livros.edit', $livro)}}"><i class="fas fa-edit text-info"></i></a>
-                                    <a href="{{route('livros.delete', $livro)}}"><i class="fas fa-trash text-danger"></i></a>
+                                    <a href="{{route('livro.get.edit', $livro)}}"><i class="fas fa-edit text-info"></i></a>
+                                    <a href="{{route('livro.get.delete', $livro)}}"><i class="fas fa-trash text-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach

@@ -5,7 +5,7 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="{{route('user.login')}}" method="post">
+                        <form id="login-form" class="form" action="{{route('login.post.view')}}" method="post">
                             @csrf
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
@@ -21,7 +21,7 @@
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="{{route('user.add')}}" class="text-info">Criar conta</a>
+                                <a href="{{route('login.get.new')}}" class="text-info">Criar conta</a>
                             </div>
                         </form>
                     </div>

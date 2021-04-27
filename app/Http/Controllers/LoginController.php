@@ -20,12 +20,12 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended('livros');
+        return redirect()->intended('view/livros');
 
     }
 
     public function createView() {
-        return view('userCreate');
+        return view('login.get.new');
     }
 
     public function create(Request $request) {
@@ -43,11 +43,11 @@ class LoginController extends Controller
         ]);
 
         Auth::login($user);
-        return redirect()->route('livros');
+        return redirect()->route('livro.get.view');
     }
 
     public function logout() {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->route('home.get.view');
     }
 }

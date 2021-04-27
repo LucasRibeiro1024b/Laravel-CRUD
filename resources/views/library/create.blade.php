@@ -2,7 +2,7 @@
 @section('title', 'Adicionar Livro')
 @section('content')
     <div class="container">
-        <form class="mt-4" method="post" action="{{route('livros.create')}}">
+        <form class="mt-4" method="post" action="{{route('livro.post.new')}}">
             @csrf
             <div class="row">
                 <div class="col-md-5">
