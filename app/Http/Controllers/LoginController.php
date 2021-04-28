@@ -20,7 +20,7 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended('view/livro/livro-view');
+        return redirect()->intended('view/livros');
 
     }
 
