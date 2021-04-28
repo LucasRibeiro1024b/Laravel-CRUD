@@ -20,12 +20,12 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended('view/livros');
+        return redirect()->intended('view/livro/livro-view');
 
     }
 
     public function createView() {
-        return view('login.get.new');
+        return view('new/user/user-new');
     }
 
     public function create(Request $request) {

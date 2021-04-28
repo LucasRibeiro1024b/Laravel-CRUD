@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('view.layouts.index')
 @section('title', 'Adicionar Livro')
 @section('content')
     <div class="container">

@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
-        return view('welcome');
+        return view('view/login/login-view');
     })->name('home.get.view');
 
     Route::get('view/login', [LoginController::class, 'logout'])->name('login.get.logout');

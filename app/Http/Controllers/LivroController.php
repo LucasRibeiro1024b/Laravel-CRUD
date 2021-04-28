@@ -11,11 +11,11 @@ class LivroController extends Controller
     public function index() {
         $livros = Livro::orderby('id', 'desc')->where('id_user', '=', Auth::id())->paginate();
 
-        return view('library.index', ["livros" => $livros]);
+        return view('view/livro/livro-view', ["livros" => $livros]);
     }
 
     public function createView() {
-        return view('library.create');
+        return view('new/livro/livro-new');
     }
 
     public function create(Request $request) {
@@ -36,7 +36,7 @@ class LivroController extends Controller
     }
 
     public function editView(Livro $livro, request $request) {
-        return view('library.edit', ['livro' => $livro]);
+        return view('edit/livro/livro-edit', ['livro' => $livro]);
     }
 
     public function edit(Request $request, Livro $livro) {
@@ -49,7 +49,7 @@ class LivroController extends Controller
     }
 
     public function deleteView(Livro $livro, request $request){
-        return view('library.delete', ['livro' => $livro]);
+        return view('delete/livro/livro-delete', ['livro' => $livro]);
     }
 
     public function delete(Livro $livro) {
